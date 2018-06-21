@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Gøremåls-liste</title>
+        <meta http-equiv="content-type" content="text/html;charset=windows-1252"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/cupertino/jquery-ui.css" />
+        <link rel="stylesheet" href="resources/todolist.css" />
+    </head>
+
+    <body>
+        <div id="container">
+
+            <div id="header">Gøremåls-liste</div>
+
+            <div class="task-list">
+                <h3>Tilføj en opgave</h3>
+                <form id="todoList-form">
+                    <input type="text" placeholder="titel" />
+                    <textarea placeholder="Beskrivelse"></textarea>
+                    <input type="text" id="datepicker" placeholder="dd/mm/yyyy" />
+                    <input type="button" class="btn btn-primary" value="Tilføj" onclick="todoList.add();" />
+                </form>
+
+                <input type="button" class="btn btn-primary" value="Slet Content" onclick="todoList.clear();" />
+
+                <div id="delete">
+                    <b>Træk her for at slette</b>
+                </div>
+            </div>
+
+            <div class="task-list container-task" id="uafgjort">
+                <h3>Uafgjort</h3>
+                <!--<div class="todoList-task">
+                    <div class="task-header">Prøveoverskrift</div>
+                    <div class="task-date">21/06/2018</div>
+                    <div class="task-description">Lorem Ipsum</div>
+                </div>-->
+            </div>
+
+            <div class="task-list container-task" id="igang">
+                <h3>Igangværende</h3>
+            </div>
+
+            <div class="task-list container-task" id="afsluttet">
+                <h3>Afsluttet</h3>
+            </div>
+
+            <div style="clear:both;"></div>
+            <!-- Compiled and minified CDN-->
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="resources/todolist.js"></script>
+
+            <script type="text/javascript">
+                    $("#datepicker").datepicker();
+                    $("#datepicker").datepicker("option", "dateFormat", "dd/mm/yy");
+
+                    $(".container-task").droppable();
+                    $(".todoList-task").draggable({revert: "valid", revertDuration: 300});
+                    todoList.init();
+            </script>
+
+        </div>
+    </body>
+</html>
