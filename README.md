@@ -1,0 +1,1 @@
+Todo list for the ordbogen.com assignment. Used local storage, jQuery UI & bootstrap.
